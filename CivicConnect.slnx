@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="CivicConnect.Application/CivicConnect.Application.csproj" />
+  <Project Path="CivicConnect.Domain.Tests/CivicConnect.Domain.Tests.csproj" Id="f00b60ba-5bee-41bb-857a-05341fac0167" />
+  <Project Path="CivicConnect.Domain/CivicConnect.Domain.csproj" />
+  <Project Path="CivicConnect.Infrustructure/CivicConnect.Infrustructure.csproj" />
+  <Project Path="CivicConnect.Presentation/CivicConnect.Presentation.AppHost/CivicConnect.Presentation.AppHost.csproj" />
+  <Project Path="CivicConnect.Presentation/CivicConnect.Presentation.Server/CivicConnect.Presentation.Server.csproj" />
+</Solution>
