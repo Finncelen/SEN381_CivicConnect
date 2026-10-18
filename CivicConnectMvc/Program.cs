@@ -9,6 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+// ==================================================================
+// 1. REGISTRATION: Add Swagger Services (Add this line)
+// ==================================================================
+builder.Services.AddSwaggerGen();
+
 var connectionString = builder.Configuration.GetConnectionString("CivicConnectDb");
 //why this is safer for SECRETS SETUP....
 //b/c the app gets the connection string from appsettings.json, .NET User Secrets or another configured provider
@@ -40,7 +45,20 @@ using (var scope = app.Services.CreateScope())
     DbInitializer.Initialize(db);
 }
 
-if (!app.Environment.IsDevelopment())
+// ==================================================================
+// 2. MIDDLEWARE: Enable Swagger UI in Development (Add this section)
+// ==================================================================
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        // This targets the default generated openapi spec endpoint
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "CivicConnect API v1");
+    });
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();

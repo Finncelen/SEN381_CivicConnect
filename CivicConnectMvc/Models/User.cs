@@ -5,6 +5,10 @@ public class User
     public int UserId { get; set; }
     public string Name { get; set; } = "";
     public string Email { get; set; } = "";
+
+    // Phone number in international format, e.g. +27...
+    public string? PhoneNumber { get; set; }
+
     public UserRole Role { get; set; }
     public bool IsActive { get; set; } = true;
 
